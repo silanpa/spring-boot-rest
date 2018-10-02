@@ -23,6 +23,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
+    
 
     <dependencies>
         <dependency>
@@ -123,14 +124,21 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <environmentVariables>
-                        <property>
-                            <name>PRUEBA</name>
-                            <value>testeando</value>
-                        </property>
-                    </environmentVariables>
-                </configuration>
+                <executions>
+          <execution>
+            <goals>
+              <goal>build-info</goal>
+            </goals>
+            <configuration>
+              <additionalProperties>
+                <encoding.source>UTF-8</encoding.source>
+                <encoding.reporting>UTF-8</encoding.reporting>
+                <java.source>${maven.compiler.source}</java.source>
+                <java.target>${maven.compiler.target}</java.target>
+              </additionalProperties>
+            </configuration>
+          </execution>
+        </executions>
             </plugin>
         </plugins>
     </build>

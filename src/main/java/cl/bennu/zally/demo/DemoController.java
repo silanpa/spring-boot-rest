@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class DemoController {
 
     @CrossOrigin
-    @GetMapping("/zally")
+    @GetMapping("/hello")
     public String zally() {
         return "Hello World";
     }
